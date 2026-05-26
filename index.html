@@ -1,0 +1,1302 @@
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baku City Barbershop | Warszawa - Profesjonalny Salon Męski</title>
+    <meta name="description" content="Odkryj Baku City Barbershop w Warszawie. Profesjonalne strzyżenie męskie, trymowanie brody, pakiety VIP i wyjątkowa atmosfera. Zarezerwuj wizytę już dziś!">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #161616;
+            --bg-tertiary: #1f1f1f;
+            --accent: #c5a059;
+            --accent-hover: #e5c27d;
+            --text-light: #ffffff;
+            --text-muted: #a6a6a6;
+            --border-color: #2c2c2c;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 0;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        .section-title::after {
+            content: '💈';
+            display: block;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 10px auto 0 auto;
+            color: var(--accent);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            font-size: 1rem;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: var(--bg-primary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+        }
+
+        /* HERO SECTION */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* ABOUT SECTION */
+        #about {
+            padding: 100px 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border: 5px solid var(--bg-tertiary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .about-image img {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* SERVICES & PRICES */
+        #services {
+            padding: 100px 0;
+            background-color: var(--bg-primary);
+        }
+
+        .price-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .price-category {
+            margin-bottom: 40px;
+        }
+
+        .price-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 18px;
+        }
+
+        .price-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-name-box {
+            flex-grow: 1;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .item-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted var(--border-color);
+            margin: 0 15px;
+        }
+
+        .item-price {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .item-details {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* LOCATIONS SECTION */
+        #locations {
+            padding: 100px 0;
+            background-color: var(--bg-tertiary);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .location-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .loc-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            border-left: 3px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        .loc-details {
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .loc-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .loc-details i {
+            color: var(--accent);
+            width: 16px;
+        }
+
+        .loc-btn {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* REVIEWS SECTION */
+        #reviews {
+            padding: 100px 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .review-author::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background-color: var(--accent);
+            display: inline-block;
+        }
+
+        /* CONTACT & FOOTER */
+        footer {
+            background-color: var(--bg-primary);
+            color: var(--text-muted);
+            padding: 70px 0 30px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 8px;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            border-radius: 50%;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+            padding-bottom: 5px;
+        }
+
+        .hours-list span.day {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* MODAL POPUP */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--accent);
+            padding: 40px;
+            max-width: 550px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.8);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .close-modal:hover {
+            color: var(--text-light);
+        }
+
+        .modal-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: var(--accent);
+        }
+
+        .modal-desc {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .modal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-item {
+            background-color: var(--bg-tertiary);
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .modal-item:hover {
+            border-color: var(--accent);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        .modal-loc-info h5 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .modal-loc-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .locations-grid, .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 75px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 75px);
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                padding: 40px 0;
+                transition: var(--transition);
+                border-top: 1px solid var(--border-color);
+                align-items: center;
+                gap: 25px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .locations-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .price-list {
+                padding: 20px;
+            }
+            .item-title {
+                font-size: 0.9rem;
+            }
+            .item-price {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAV -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                BAKU CITY<span>.</span>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#hero" class="nav-link active">Start</a></li>
+                    <li><a href="#about" class="nav-link">O nas</a></li>
+                    <li><a href="#services" class="nav-link">Cennik</a></li>
+                    <li><a href="#locations" class="nav-link">Lokalizacje</a></li>
+                    <li><a href="#reviews" class="nav-link">Opinie</a></li>
+                    <li><button class="btn btn-outline" style="padding: 8px 20px; font-size: 0.8rem;" onclick="openBookingModal()">Rezerwacja</button></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <p class="hero-tagline">Premium Barber Shop Warszawa</p>
+            <h1 class="hero-title">STYL I TRADYCJA W KAŻDYM CIĘCIU</h1>
+            <p class="hero-desc">Mistrzowie w swoim fachu, wieloletnie doświadczenie oraz prestiżowa atmosfera. Odwiedź jeden z naszych salonów w Warszawie.</p>
+            <div class="hero-buttons">
+                <button class="btn" onclick="openBookingModal()">Zarezerwuj wizytę</button>
+                <a href="#services" class="btn btn-outline">Zobacz cennik</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-text">
+                    <h3>Pasja poparta doświadczeniem</h3>
+                    <p>Barberzy w Baku City Barbershop są mistrzami swojej sprawy. Wykonują pracę na najwyższym poziomie, szybko i profesjonalnie, a ich umiejętności są podparte wieloletnim doświadczeniem.</p>
+                    <p>Dbamy o każdy detal – od klasycznego strzyżenia, przez precyzyjne trymowanie brody gorącym ręcznikiem, aż po kompleksową pielęgnację twarzy. U nas poczujesz się jak w prawdziwym, męskim klubie.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-cut feature-icon"></i>
+                            <div>
+                                <h4 class="feature-title">Top Barberzy</h4>
+                                <p class="feature-desc">Doświadczona kadra szkolona u międzynarodowych mistrzów.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-hot-tub feature-icon"></i>
+                            <div>
+                                <h4 class="feature-title">Tradycyjny Rytuał</h4>
+                                <p class="feature-desc">Golenie brzytwą w asyście gorących kompresów.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-cosmetics feature-icon" style="font-family:'Font Awesome 6 Free'; font-weight:900;">🧴</i>
+                            <div>
+                                <h4 class="feature-title">Premium Produkty</h4>
+                                <p class="feature-desc">Pracujemy wyłącznie na certyfikowanych, męskich kosmetykach.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mug-hot feature-icon"></i>
+                            <div>
+                                <h4 class="feature-title">Klimat & Kawa</h4>
+                                <p class="feature-desc">Pyszna kawa, whisky i doskonała atmosfera gratis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600&auto=format&fit=crop" alt="Baku City Barbershop Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES & PRICES SECTION -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Cennik usług</h2>
+            <p class="section-subtitle">Wybierz usługę dostosowaną do Twoich potrzeb. Każda usługa zawiera profesjonalny dobór fryzury oraz mycie.</p>
+            
+            <div class="price-list">
+                <!-- Kategoria 1 -->
+                <div class="price-category">
+                    <h3 class="category-title">Strzyżenie i Pielęgnacja Włosów</h3>
+                    
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">Strzyżenie i stylizacja włosów (Men's haircut)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">90 zł</span>
+                        </div>
+                        <p class="item-details">Czas trwania: 30-45 min. Mycie, dobór fryzury, strzyżenie i profesjonalna stylizacja.</p>
+                    </div>
+                    
+                    <br>
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">Strzyżenie długich włosów ze stylizacją</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">120 zł</span>
+                        </div>
+                        <p class="item-details">Czas trwania: 45 min. Dedykowane dla dłuższych form męskich.</p>
+                    </div>
+
+                    <br>
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">Golenie głowy (Head shave)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">90 zł</span>
+                        </div>
+                        <p class="item-details">Czas trwania: 30 min. Tradycyjne golenie głowy maszynką/brzytwą.</p>
+                    </div>
+
+                    <br>
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">Strzyżenie dziecięce (do 10 lat)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">80 zł</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategoria 2 -->
+                <div class="price-category">
+                    <h3 class="category-title">Broda i Golenie</h3>
+                    
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">Trymowanie brody (Beard trimming)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">80 zł</span>
+                        </div>
+                        <p class="item-details">Czas trwania: 30 min. Konturowanie, strzyżenie i pielęgnacja olejkiem.</p>
+                    </div>
+                    
+                    <br>
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">Królewskie golenie twarzy (Royal shaving)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">80 zł</span>
+                        </div>
+                        <p class="item-details">Tradycyjny rytuał brzytwy z użyciem gorących ręczników.</p>
+                    </div>
+                </div>
+
+                <!-- Kategoria 3 -->
+                <div class="price-category">
+                    <h3 class="category-title">Pakiety Łączone & VIP</h3>
+                    
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">KOMBO (Włosy + Broda)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">160 - 170 zł</span>
+                        </div>
+                        <p class="item-details">Czas trwania: 60 min. Pełny pakiet strzyżenia włosów oraz kompleksowego trymowania brody.</p>
+                    </div>
+                    
+                    <br>
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">KOMBO PRO (Włosy + Broda + Maseczka gratis)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">200 zł</span>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="price-item-block">
+                        <div class="price-item">
+                            <div class="item-name-box">
+                                <span class="item-title">PAKIET VIP (Włosy, broda, pielęgnacja twarzy)</span>
+                                <span class="item-dots"></span>
+                            </div>
+                            <span class="item-price">280 - 300 zł</span>
+                        </div>
+                        <p class="item-details">Czas trwania: 90 min. Ekskluzywny, pełny pakiet pielęgnacji dla wymagających mężczyzn.</p>
+                    </div>
+                </div>
+
+                <!-- Kategoria 4 -->
+                <div class="price-category">
+                    <h3 class="category-title">Usługi Dodatkowe</h3>
+                    <div class="price-item"><div class="item-name-box"><span class="item-title">Farbowanie włosów / brody</span><span class="item-dots"></span></div><span class="item-price">100 - 120 zł</span></div>
+                    <div class="price-item"><div class="item-name-box"><span class="item-title">Depilacja woskiem (Nos / Uszy / Twarz)</span><span class="item-dots"></span></div><span class="item-price">10 - 30 zł</span></div>
+                    <div class="price-item"><div class="item-name-box"><span class="item-title">Maska na twarz (Face mask)</span><span class="item-dots"></span></div><span class="item-price">30 zł</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS SECTION -->
+    <section id="locations">
+        <div class="container">
+            <h2 class="section-title">Nasze Salony w Warszawie</h2>
+            <p class="section-subtitle">Posiadamy kilka nowocześnie urządzonych salonów w dogodnych lokalizacjach Warszawy. Wybierz najbliższy i zarezerwuj wizytę.</p>
+            
+            <div class="locations-grid">
+                <!-- Salon 1 -->
+                <div class="location-card">
+                    <div>
+                        <h3 class="loc-name">Śródmieście</h3>
+                        <div class="loc-details">
+                            <p><i class="fas fa-map-marker-alt"></i> ul. Marszałkowska 84/92, 00-514 Warszawa</p>
+                            <p><i class="fas fa-phone"></i> +48 534 656 757</p>
+                            <p><i class="fas fa-clock"></i> Pon-Sob: 9:00-21:00 | Niedz: 10:00-19:00</p>
+                        </div>
+                    </div>
+                    <a href="https://booksy.com/pl-pl/29291_baku-city-barbershop_barber-shop_3_warszawa" target="_blank" class="btn loc-btn">Zarezerwuj w Śródmieściu</a>
+                </div>
+
+                <!-- Salon 2 -->
+                <div class="location-card">
+                    <div>
+                        <h3 class="loc-name">Ochota (Grójecka)</h3>
+                        <div class="loc-details">
+                            <p><i class="fas fa-map-marker-alt"></i> ul. Grójecka 216, lok. U3, 02-390 Warszawa</p>
+                            <p><i class="fas fa-phone"></i> +48 733 414 515</p>
+                            <p><i class="fas fa-clock"></i> Pon-Sob: 9:00-21:00 | Niedz: 10:00-19:00</p>
+                        </div>
+                    </div>
+                    <a href="https://booksy.com/pl-pl/78586_bakucity-barbershop-grojecka_barber-shop_3_warszawa" target="_blank" class="btn loc-btn">Zarezerwuj na Ochocie</a>
+                </div>
+
+                <!-- Salon 3 -->
+                <div class="location-card">
+                    <div>
+                        <h3 class="loc-name">Mokotów</h3>
+                        <div class="loc-details">
+                            <p><i class="fas fa-map-marker-alt"></i> ul. Białej Floty 4, Lok. U4, 02-654 Warszawa</p>
+                            <p><i class="fas fa-phone"></i> +48 577 919 010</p>
+                            <p><i class="fas fa-clock"></i> Pon-Sob: 9:00-21:00 | Niedz: 10:00-19:00</p>
+                        </div>
+                    </div>
+                    <a href="https://booksy.com/pl-pl/98691_baku-city-barbershop-mokotow_barber-shop_3_warszawa" target="_blank" class="btn loc-btn">Zarezerwuj na Mokotowie</a>
+                </div>
+
+                <!-- Salon 4 -->
+                <div class="location-card">
+                    <div>
+                        <h3 class="loc-name">Włochy (Al. Krakowska)</h3>
+                        <div class="loc-details">
+                            <p><i class="fas fa-map-marker-alt"></i> aleja Krakowska 8a, 02-194 Warszawa</p>
+                            <p><i class="fas fa-phone"></i> +48 533 112 213</p>
+                            <p><i class="fas fa-clock"></i> Pon-Sob: 9:00-21:00 | Niedz: 10:00-19:00</p>
+                        </div>
+                    </div>
+                    <a href="https://booksy.com/pl-pl/37188_barbershop-bakucity-al-krakowska_barber-shop_3_warszawa" target="_blank" class="btn loc-btn">Zarezerwuj we Włochach</a>
+                </div>
+
+                <!-- Salon 5 -->
+                <div class="location-card">
+                    <div>
+                        <h3 class="loc-name">Praga Południe</h3>
+                        <div class="loc-details">
+                            <p><i class="fas fa-map-marker-alt"></i> ul. Grochowska 221, 04-148 Warszawa</p>
+                            <p><i class="fas fa-phone"></i> +48 505 404 303</p>
+                            <p><i class="fas fa-clock"></i> Pon-Sob: 9:00-21:00 | Niedz: 10:00-19:00</p>
+                        </div>
+                    </div>
+                    <a href="https://booksy.com/pl-pl/" target="_blank" class="btn loc-btn">Zarezerwuj na Pradze</a>
+                </div>
+
+                <!-- Salon 6 -->
+                <div class="location-card">
+                    <div>
+                        <h3 class="loc-name">Mokotów (Olkuska)</h3>
+                        <div class="loc-details">
+                            <p><i class="fas fa-map-marker-alt"></i> ul. Olkuska 4, 02-604 Warszawa</p>
+                            <p><i class="fas fa-phone"></i> +48 515 212 313</p>
+                            <p><i class="fas fa-clock"></i> Pon-Sob: 9:00-21:00 | Niedz: 10:00-19:00</p>
+                        </div>
+                    </div>
+                    <a href="https://booksy.com/pl-pl/" target="_blank" class="btn loc-btn">Zarezerwuj na Olkuskiej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews">
+        <div class="container">
+            <h2 class="section-title">Co o nas mówią klienci</h2>
+            <p class="section-subtitle">Średnia ocena naszych salonów to 5.0 gwiazdek na Booksy i Fresha na podstawie tysięcy opinii.</p>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Baku City to super miejsce na stylowe strzyżenie i pielęgnację brody. Profesjonalna obsługa, świetna atmosfera i fantastyczne efekty. Na pewno wrócę!"</p>
+                    <h5 class="review-author">Bartek</h5>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The staff is professional, attentive and well-mannered. The room itself leaves a pleasant impression. The haircut turned out perfect. I recommend this barbershop to everyone."</p>
+                    <h5 class="review-author">Vladimir</h5>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Excellent interior, cozy atmosphere and super masters of their craft. I really like the result - a stylish short haircut with an interesting design. Exactly what I wanted."</p>
+                    <h5 class="review-author">Gennady</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>O Baku City</h4>
+                <p>Nowoczesna sieć salonów barberskich w Warszawie. Stawiamy na jakość, detale i pełen profesjonalizm, dbając o nienaganny męski wizerunek.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/bakucitybarbershop" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Szybkie Linki</h4>
+                <p><a href="#hero">Główna</a></p>
+                <p><a href="#about">O nas</a></p>
+                <p><a href="#services">Cennik usług</a></p>
+                <p><a href="#locations">Nasze Salony</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Godziny Otwarcia</h4>
+                <ul class="hours-list">
+                    <li><span class="day">Poniedziałek</span> <span>09:00 - 21:00</span></li>
+                    <li><span class="day">Wtorek</span> <span>09:00 - 21:00</span></li>
+                    <li><span class="day">Środa</span> <span>09:00 - 21:00</span></li>
+                    <li><span class="day">Czwartek</span> <span>09:00 - 21:00</span></li>
+                    <li><span class="day">Piątek</span> <span>09:00 - 21:00</span></li>
+                    <li><span class="day">Sobota</span> <span>09:00 - 21:00</span></li>
+                    <li><span class="day">Niedziela</span> <span>10:00 - 19:00</span></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Główny Kontakt</h4>
+                <p><i class="fas fa-phone" style="color:var(--accent); margin-right:8px;"></i> Infolinia: +48 534 656 757</p>
+                <p><i class="fas fa-envelope" style="color:var(--accent); margin-right:8px;"></i> kontakt@bakucity.pl</p>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--accent); margin-right:8px;"></i> Warszawa, Polska</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Baku City Barbershop Warszawa. Wszelkie prawa zastrzeżone. | Projekt Wizytówki</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE BOOKING MODAL -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeBookingModal()">&times;</button>
+            <h3 class="modal-title">Wybierz swój salon</h3>
+            <p class="modal-desc">Wybierz lokalizację, aby przejść do szybkiej rezerwacji online przez Booksy:</p>
+            
+            <div class="modal-list">
+                <a href="https://booksy.com/pl-pl/29291_baku-city-barbershop_barber-shop_3_warszawa" target="_blank" class="modal-item">
+                    <div class="modal-loc-info">
+                        <h5>Śródmieście</h5>
+                        <p>ul. Marszałkowska 84/92</p>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color:var(--accent);"></i>
+                </a>
+
+                <a href="https://booksy.com/pl-pl/78586_bakucity-barbershop-grojecka_barber-shop_3_warszawa" target="_blank" class="modal-item">
+                    <div class="modal-loc-info">
+                        <h5>Ochota</h5>
+                        <p>ul. Grójecka 216</p>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color:var(--accent);"></i>
+                </a>
+
+                <a href="https://booksy.com/pl-pl/98691_baku-city-barbershop-mokotow_barber-shop_3_warszawa" target="_blank" class="modal-item">
+                    <div class="modal-loc-info">
+                        <h5>Mokotów (Białej Floty)</h5>
+                        <p>ul. Białej Floty 4</p>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color:var(--accent);"></i>
+                </a>
+
+                <a href="https://booksy.com/pl-pl/37188_barbershop-bakucity-al-krakowska_barber-shop_3_warszawa" target="_blank" class="modal-item">
+                    <div class="modal-loc-info">
+                        <h5>Włochy</h5>
+                        <p>aleja Krakowska 8a</p>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color:var(--accent);"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        // DOM ELEMENTS
+        const header = document.getElementById('header');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const bookingModal = document.getElementById('booking-modal');
+
+        // SCROLL EFFECT FOR HEADER
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Active link highlight on scroll
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // MOBILE MENU TOGGLE
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if(navMenu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // CLOSE MOBILE MENU ON LINK CLICK
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+
+        // MODAL FUNCTIONS
+        function openBookingModal() {
+            bookingModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // block page scroll
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // restore scroll
+        }
+
+        // Close modal when clicking outside content box
+        window.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+    </script>
+</body>
+</html>
